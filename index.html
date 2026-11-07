@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1a635a">
+  <meta name="color-scheme" content="only light">
+  <meta name="description" content="Простой список задач. Добавляйте, отмечайте выполненное и сохраняйте фокус на главном.">
+  <title>Фокус — список задач</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main class="workspace">
+    <aside class="intro" aria-label="О приложении">
+      <a class="brand" href="./" aria-label="Фокус — главная"><span class="brand-mark" aria-hidden="true">✓</span>фокус<span class="brand-dot">.</span></a>
+      <div class="intro-copy"><span class="eyebrow">МЕНЬШЕ ШУМА. БОЛЬШЕ ДЕЛА.</span><h1>Всё важное.<br> На одном листе.</h1><p>Освободите голову для идей.<br>Остальное запишите сюда.</p></div>
+      <div class="intro-footer"><span class="local-dot" aria-hidden="true"></span>Ваш список остаётся в этом браузере</div>
+    </aside>
+    <section class="task-panel" aria-labelledby="list-title">
+      <header class="panel-header"><div><p id="today" class="date-label"></p><h2 id="list-title">Мои задачи</h2></div><span class="header-symbol" aria-hidden="true">↗</span></header>
+      <form id="task-form" novalidate>
+        <label class="sr-only" for="task-input">Новая задача</label>
+        <div class="input-row"><input id="task-input" name="task" type="text" maxlength="200" placeholder="Что нужно сделать?" autocomplete="off" aria-describedby="input-hint input-error"><button class="add-button" type="submit" aria-label="Добавить задачу"><span aria-hidden="true">+</span><span class="add-label">Добавить</span></button></div>
+        <div class="input-meta"><span id="input-hint">Enter, чтобы добавить</span><span id="input-count">0 / 200</span></div>
+        <p id="input-error" class="input-error" role="alert" hidden></p>
+      </form>
+      <p id="storage-warning" class="storage-warning" role="alert" hidden></p>
+      <div class="list-toolbar"><div class="filters" role="group" aria-label="Показать задачи"><button type="button" data-filter="all" aria-pressed="true">Все <span id="all-count">0</span></button><button type="button" data-filter="active" aria-pressed="false">В работе</button><button type="button" data-filter="done" aria-pressed="false">Готово</button></div></div>
+      <ul id="task-list" class="task-list" aria-label="Список задач"></ul>
+      <div id="empty-state" class="empty-state"><div class="empty-icon" aria-hidden="true"><svg width="48" height="48" viewBox="0 0 48 48" fill="none"><rect x="10" y="8" width="28" height="34" rx="5" stroke="currentColor" stroke-width="1.5"/><rect x="18" y="5" width="12" height="6" rx="3" fill="#f5f7f4" stroke="currentColor" stroke-width="1.5"/><path d="m17 26 5 5 10-12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3 id="empty-title">Здесь начинается порядок</h3><p id="empty-text">Добавьте первую задачу.<br>Даже маленький шаг — уже движение.</p></div>
+      <footer class="list-footer"><span id="summary">Пока задач нет</span><span class="save-status" id="save-status"><span aria-hidden="true">✓</span>Сохранено в браузере</span></footer>
+      <p id="announcement" class="sr-only" role="status" aria-live="polite"></p>
+    </section>
+  </main>
+  <noscript><p class="noscript">Для работы списка задач включите JavaScript.</p></noscript>
+</body>
+</html>
